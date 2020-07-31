@@ -11,13 +11,13 @@ type  appProps = {
   pending: boolean,
   phones: phoneProps[],
   error: string | undefined,
-  fetchPhones?: typeof fetchPhones,
+  fetchPhones: typeof fetchPhones,
 };
 
 const App: FC<appProps> = (props) => {
   useEffect(() => {
-    if(props.fetchPhones) props.fetchPhones();
-  }, [])
+    props.fetchPhones();
+  }, [props])
 
   return (
     <div className="App">
