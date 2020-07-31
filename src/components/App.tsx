@@ -23,7 +23,7 @@ const App: FC<appProps> = (props) => {
     <div className="App">
       <header className="App-header">
         {
-          props.phones && props.phones.map( p => <h2>{p.name}</h2>)
+          props.phones && props.phones.map( p => <h2 key={p.id}>{p.name}</h2>)
         }
       </header>
     </div>

@@ -19,7 +19,5 @@ export interface appState {
 
 export interface getPhoneAction {
   type: 'FETCH_PHONES_ERROR' | 'FETCH_PHONES_SUCCESS' | 'FETCH_PHONES_PENDING',
-  payload: phoneProps[],
-  pending: boolean,
-  error ?: string,
+  payload: appState,
 }

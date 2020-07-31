@@ -18,13 +18,13 @@ export function mainReducer(state = initialState, action: getPhoneAction): appSt
             return {
                 ...state,
                 pending: false,
-                phones: action.payload
+                phones: action.payload.phones
             }
         case FETCH_PHONES_ERROR:
             return {
                 ...state,
                 pending: false,
-                error: action.error
+                error: action.payload.error
             }
         default: 
             return state;

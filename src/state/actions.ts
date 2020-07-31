@@ -12,13 +12,13 @@ export function fetchPhonesPending() {
 export function fetchPhonesSuccess(phones: phoneProps) {
     return {
         type: FETCH_PHONES_SUCCESS,
-        products: phones
+        payload: {phones}
     }
 }
 
 export function fetchPhonesError(error: string) {
     return {
         type: FETCH_PHONES_ERROR,
-        error: error
+        payload: {error}
     }
 }

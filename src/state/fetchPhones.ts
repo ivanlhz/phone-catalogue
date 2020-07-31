@@ -1,22 +1,17 @@
 import {fetchPhonesError, fetchPhonesPending, fetchPhonesSuccess} from './actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import axios from 'axios';
 
 function fetchPhones() {
-    return (dispatch: ThunkDispatch<{},{},AnyAction>)=> {
+    return async (dispatch: ThunkDispatch<{},{},AnyAction>) => {
         dispatch(fetchPhonesPending());
-        fetch('http://localhost:5000/phones',{mode: 'no-cors'})
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                throw(res.error);
-            }
-            dispatch(fetchPhonesSuccess(res.phones));
-            return res.products;
-        })
-        .catch(error => {
-            dispatch(fetchPhonesError(error));
-        })
+        try {         
+          const res = await axios.get('http://localhost:5000/phones')
+          dispatch(fetchPhonesSuccess(res.data.phones))
+        } catch (error) {
+          dispatch(fetchPhonesError(error))
+        }
     }
 }
 
