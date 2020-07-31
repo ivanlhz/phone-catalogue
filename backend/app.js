@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+app.use(cors())
 
 app.get('/phones', function (req, res) {
   fs.readFile(path.join(__dirname,'phones.json'), 'utf8', function (err, data) {
