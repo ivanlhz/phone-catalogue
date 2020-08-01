@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './App.css';
-import {Home, NotFound} from '../pages';
+import {Home, NotFound, Details} from '../pages';
 import {Router} from '@reach/router';
 
 const App: FC = () => {
@@ -9,6 +9,7 @@ const App: FC = () => {
       <header className="App-header">
         <Router>
           <Home path="/" />
+          <Details path="phones/:phoneid" />
           <NotFound default />
         </Router>
       </header>

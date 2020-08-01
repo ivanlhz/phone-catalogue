@@ -3,6 +3,9 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import axios from 'axios';
 
+export type fetchPhonesDef = typeof fetchPhones;
+
+
 function fetchPhones() {
     return async (dispatch: ThunkDispatch<{},{},AnyAction>) => {
         dispatch(fetchPhonesPending());
