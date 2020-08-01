@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, AnyAction } from 'redux';
 import { appState, phoneProps } from '../types';
 import { ThunkDispatch } from 'redux-thunk';
-import { PhoneList } from '../components/PhoneList.tsx';
+import { PhoneList } from '../components/PhoneList';
 import { RouteComponentProps } from '@reach/router';
 
 type  homeProps = RouteComponentProps & {
