@@ -17,13 +17,13 @@ interface DetailsProps extends RouteComponentProps {
   fetchPhones: fetchPhonesDef;
 }
 
-const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetchPhones }) => {
+const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetchPhones, error }) => {
   const { phone } = useGetPhone(phoneid, pending, fetchPhones, phones);
 
   // TODO ADD spinner
   return (
     <section>
-      {phone && <PhoneDetails {...phone} />}
+      {phone && !pending && !error && <PhoneDetails {...phone} />}
     </section>
   );
 };

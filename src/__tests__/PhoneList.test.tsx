@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { PhoneList } from '../components/PhoneList';
 import { phoneProps } from '../types';
-import { renderWithRouter } from './App.test';
 
-const list: phoneProps[] = [
+export const list: phoneProps[] = [
   {
     id: 0,
     name: 'iPhone 7',
