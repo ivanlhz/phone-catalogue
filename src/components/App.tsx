@@ -1,46 +1,16 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import './App.css';
-import fetchPhones from '../state/fetchPhones'
-import { getPhonesError, getPhones, getPhonesPending } from '../state/reducer';
-import { connect } from 'react-redux';
-import { bindActionCreators, AnyAction } from 'redux';
-import {appState, phoneProps} from '../types'
-import { ThunkDispatch } from 'redux-thunk';
+import Home from '../pages/Home';
 
-type  appProps = {
-  pending: boolean,
-  phones: phoneProps[],
-  error: string | undefined,
-  fetchPhones: typeof fetchPhones,
-};
 
-const App: FC<appProps> = (props) => {
-  useEffect(() => {
-    props.fetchPhones();
-  }, [props])
-
+const App: FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {
-          props.phones && props.phones.map( p => <h2 key={p.id}>{p.name}</h2>)
-        }
+        <Home />
       </header>
     </div>
   );
 }
 
-const mapStateToProps = (state: appState) => ({
-  error: getPhonesError(state),
-  phones: getPhones(state),
-  pending: getPhonesPending(state)
-})
-
-const mapDispatchToProps = (dispatch: ThunkDispatch<{},{}, AnyAction>) => bindActionCreators({
-  fetchPhones: fetchPhones
-}, dispatch)
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;

@@ -5,6 +5,7 @@
     "name": "Iván López Hdez",
     "email": "ivanlhz@gmail.com"
   },
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.28",
