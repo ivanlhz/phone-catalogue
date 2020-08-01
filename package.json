@@ -55,7 +55,9 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^7.21.6",
+    "@testing-library/react-hooks": "^3.4.1",
     "cypress": "^4.11.0",
+    "react-test-renderer": "^16.13.1",
     "redux-devtools": "^3.6.0"
   },
   "jest": {
