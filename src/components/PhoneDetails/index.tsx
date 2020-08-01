@@ -1,0 +1,1 @@
+export {default as  PhoneDetails} from './PhoneDetails'

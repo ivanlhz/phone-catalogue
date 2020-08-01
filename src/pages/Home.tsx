@@ -6,8 +6,9 @@ import { bindActionCreators, AnyAction } from 'redux';
 import { appState, phoneProps } from '../types';
 import { ThunkDispatch } from 'redux-thunk';
 import { PhoneList } from '../components/PhoneList.tsx';
+import { RouteComponentProps } from '@reach/router';
 
-type  homeProps = {
+type  homeProps = RouteComponentProps & {
   pending: boolean,
   phones: phoneProps[],
   error: string | undefined,
