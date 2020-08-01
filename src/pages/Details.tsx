@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { appState, phoneProps } from '../types';
 import { getPhones, getPhonesError, getPhonesPending } from '../state/reducer';
@@ -7,6 +7,7 @@ import { PhoneDetails } from '../components/PhoneDetails';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction, bindActionCreators } from 'redux';
 import fetchPhones, { fetchPhonesDef } from '../state/fetchPhones';
+import { useGetPhone } from '../components/customHooks/useGetPhone';
 
 interface DetailsProps extends RouteComponentProps {
   phoneid?: string;
@@ -16,15 +17,8 @@ interface DetailsProps extends RouteComponentProps {
   fetchPhones: fetchPhonesDef;
 }
 
-const Details: FC<DetailsProps> = ({ phoneid, phones, pending, fetchPhones }) => {
-  const [phone, setPhone] = useState<phoneProps>();
-  useEffect(() => {
-    if ((!phones || phones.length === 0) && !pending) {
-      fetchPhones();
-    } else {
-      setPhone(phones?.find((p) => (String(p.id) === phoneid)));
-    }
-  }, [phones, phoneid, pending]);
+const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetchPhones }) => {
+  const { phone } = useGetPhone(phoneid, pending, fetchPhones, phones);
 
   // TODO ADD spinner
   return (

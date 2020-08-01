@@ -18,7 +18,7 @@ type  homeProps = RouteComponentProps & {
 const Home: FC<homeProps> = (props) => {
   useEffect(() => {
     props.fetchPhones();
-  }, [props]);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
   return <section>
     <PhoneList data={props.phones} />
   </section>;

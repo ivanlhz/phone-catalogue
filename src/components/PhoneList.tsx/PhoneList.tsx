@@ -11,8 +11,8 @@ const PhoneList: FC<PhonelistProps> = ({data}) => {
     <div>
       {
         data.map( ({name, imageFileName, id}) => (
-          <Link to={`phones/${id}`}>
-            <div className="block" key={id}>
+          <Link key={id} to={`phones/${id}`}>
+            <div className="block">
               <img alt={name} src={`images/${imageFileName}`}/>
               <h3>{name}</h3>
             </div>
