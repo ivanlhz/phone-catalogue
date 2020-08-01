@@ -3,11 +3,11 @@ import { RouteComponentProps } from '@reach/router';
 import { appState, phoneProps } from '../types';
 import { getPhones, getPhonesError, getPhonesPending } from '../state/reducer';
 import { connect } from 'react-redux';
-import { PhoneDetails } from '../components/PhoneDetails';
+import { PhoneDetails } from '../components';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction, bindActionCreators } from 'redux';
 import fetchPhones, { fetchPhonesDef } from '../state/fetchPhones';
-import { useGetPhone } from '../components/customHooks/useGetPhone';
+import { useGetPhone } from '../customHooks/useGetPhone';
 
 interface DetailsProps extends RouteComponentProps {
   phoneid?: string;
@@ -23,7 +23,6 @@ const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetc
   // TODO ADD spinner
   return (
     <section>
-      <h2>PHONE ID - {phoneid} </h2>
       {phone && <PhoneDetails {...phone} />}
     </section>
   );

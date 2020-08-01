@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, AnyAction } from 'redux';
 import { appState, phoneProps } from '../types';
 import { ThunkDispatch } from 'redux-thunk';
-import { PhoneList } from '../components/PhoneList';
+import { PhoneList } from '../components';
 import { RouteComponentProps } from '@reach/router';
 
 type  homeProps = RouteComponentProps & {
@@ -19,6 +19,7 @@ const Home: FC<homeProps> = (props) => {
   useEffect(() => {
     props.fetchPhones();
   }, []);// eslint-disable-line react-hooks/exhaustive-deps
+  
   return <section>
     <PhoneList data={props.phones} />
   </section>;

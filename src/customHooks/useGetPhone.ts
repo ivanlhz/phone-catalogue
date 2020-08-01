@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { phoneProps } from '../../types';
-import { fetchPhonesDef } from '../../state/fetchPhones';
+import { phoneProps } from '../types';
+import { fetchPhonesDef } from '../state/fetchPhones';
 
 export const useGetPhone = (
   phoneid: string,
