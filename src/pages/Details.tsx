@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router';
 import { appState, phoneProps } from '../types';
 import { getPhones, getPhonesError, getPhonesPending } from '../state/reducer';
 import { connect } from 'react-redux';
-import { PhoneDetails } from '../components';
+import { PhoneDetails, Spinner } from '../components';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction, bindActionCreators } from 'redux';
 import fetchPhones, { fetchPhonesDef } from '../state/fetchPhones';
@@ -20,9 +20,9 @@ interface DetailsProps extends RouteComponentProps {
 const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetchPhones, error }) => {
   const { phone } = useGetPhone(phoneid, pending, fetchPhones, phones);
 
-  // TODO ADD spinner
   return (
     <section>
+      {pending && <Spinner />}
       {phone && !pending && !error && <PhoneDetails {...phone} />}
     </section>
   );
