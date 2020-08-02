@@ -7,6 +7,7 @@ import { appState, phoneProps } from '../types';
 import { ThunkDispatch } from 'redux-thunk';
 import { PhoneList, Spinner } from '../components';
 import { RouteComponentProps } from '@reach/router';
+import styled from '@emotion/styled';
 
 type homeProps = RouteComponentProps & {
   pending: boolean;
@@ -15,12 +16,19 @@ type homeProps = RouteComponentProps & {
   fetchPhones: typeof fetchPhones;
 };
 
+const HomeStyled = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+`;
+
 const Home: FC<homeProps> = (props) => {
   useEffect(() => {
     props.fetchPhones();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return <section>{props.pending ? <Spinner /> : <PhoneList data={props.phones} />}</section>;
+  return <HomeStyled>{props.pending ? <Spinner /> : <PhoneList data={props.phones} />}</HomeStyled>;
 };
 
 const mapStateToProps = (state: appState) => ({
