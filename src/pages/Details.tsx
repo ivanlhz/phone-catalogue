@@ -8,6 +8,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction, bindActionCreators } from 'redux';
 import fetchPhones, { fetchPhonesDef } from '../state/fetchPhones';
 import { useGetPhone } from '../customHooks/useGetPhone';
+import styled from '@emotion/styled';
 
 interface DetailsProps extends RouteComponentProps {
   phoneid?: string;
@@ -17,14 +18,21 @@ interface DetailsProps extends RouteComponentProps {
   fetchPhones: fetchPhonesDef;
 }
 
+const DetailStyled = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+`;
+
 const Details: FC<DetailsProps> = ({ phoneid = '', phones, pending = false, fetchPhones, error }) => {
   const { phone } = useGetPhone(phoneid, pending, fetchPhones, phones);
 
   return (
-    <section>
+    <DetailStyled>
       {pending && <Spinner />}
       {phone && !pending && !error && <PhoneDetails {...phone} />}
-    </section>
+    </DetailStyled>
   );
 };
 

@@ -20,7 +20,8 @@ const HomeStyled = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 80vh;
+  padding-bottom: 5rem;
 `;
 
 const Home: FC<homeProps> = (props) => {
