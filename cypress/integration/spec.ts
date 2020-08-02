@@ -5,5 +5,6 @@ describe('Phone Catalogue', () => {
     cy.wait(4000)
     cy.get('[href="/phones/0"]').click(); 
     cy.get('ul > :nth-child(2)').should('contain', 'A10 Fusion')
+    cy.get('.goBack').click();
   })
 })
