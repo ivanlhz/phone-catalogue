@@ -6,10 +6,12 @@ Download or clone the repository into your computer, go to the project paht and 
 using `npm i` or `yarn install`
 
 ## Available Scripts
+> All script are available as npm command.
+
 In the project directory, you can run:
 
 ### `yarn start`
-Runs the app in the development mode.<br />
+Runs the app in the development mode and the backend.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
@@ -23,7 +25,7 @@ Launches the test runner with coverage where you can check code coverage.
 
 ### `yarn test:e2e`
 Launches the cypress client where you can launch the e2e tests.
-Note: Before run this code you must run `yarn start` to ensure the app is running.
+> Note: Before run this code you must run `yarn start` to ensure the app is running.
 
 
 
